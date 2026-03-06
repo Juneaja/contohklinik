@@ -1,0 +1,524 @@
+/* ====== Ngoding asik (Light, Profesional & Elegan) ====== */
+:root{
+  --bg:#ffffff;
+  --bg-alt:#f5f7fb;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --primary:#1e40af; /* blue-800 */
+  --accent:#3b82f6;  /* blue-500 */
+  --border:rgba(2,6,23,.12);
+  --card:#ffffff;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* Utilities */
+.container{width:min(1100px,92%);margin-inline:auto}
+.container.narrow{width:min(880px,92%);margin-inline:auto}
+.section{padding:80px 0}
+.section-alt{background:var(--bg-alt);padding:80px 0}
+.section-title{
+  text-align:center;
+  font-size:36px;
+  font-weight:800;
+  color:var(--primary);
+  margin:0 0 12px;
+}
+.section-desc{ text-align:center;color:var(--muted);margin:0 0 32px}
+
+/* --- logo --- */
+.brand-logo {
+  width: 40px;       /* ubah sesuai kebutuhan */
+  height: 40px;      /* pastikan proporsional */
+  object-fit: contain;
+  border-radius: 8px; /* opsional: buat sudut sedikit melengkung */
+  margin-right: 10px; /* jarak antara logo dan teks */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+}
+
+.site-header .brand-logo {
+  height: 40px !important;
+  width: auto !important;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+
+
+/* --- Modern Header Style (React-like) --- */
+.site-header.fixed {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #1E40AF;
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1E40AF;
+  letter-spacing: -0.3px;
+}
+
+.nav-desktop {
+  display: none;
+  gap: 28px;
+}
+
+.nav-desktop button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #334155;
+  cursor: pointer;
+  transition: color .2s;
+}
+
+.nav-desktop button:hover {
+  color: #1E40AF;
+}
+
+.header-cta { display: none; }
+
+.nav-toggle {
+  background: none;
+  border: none;
+  color: #334155;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive layout */
+@media (min-width: 960px) {
+  .nav-desktop { display: flex; }
+  .header-cta { display: block; }
+  .nav-toggle { display: none; }
+}
+
+/* Galeri: 9 foto dalam 1 baris, scroll horizontal jika overflow */
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;       /* Jangan membungkus ke baris baru */
+  overflow-x: auto;        /* Tampilkan scroll horizontal jika konten overflow */
+  -webkit-overflow-scrolling: touch; /* agar scroll halus di mobile */
+}
+
+.gallery a {
+  display: inline-block;
+  margin-right: 8px;       /* Jarak horizontal antar gambar */
+  text-decoration: none;   /* Hilangkan underline pada link gambar */
+}
+.gallery a:last-child {
+  margin-right: 0;         /* Tidak ada margin di gambar terakhir */
+}
+
+.gallery img {
+  height: 150px;           /* Tinggi thumbnail seragam 150px */
+  width: auto;             /* Lebar menyesuaikan agar rasio terjaga */
+  object-fit: cover;       /* (Opsional) memotong gambar jika tidak sesuai ratio */
+  display: block;
+}
+
+
+/* Mobile menu */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: 16px;
+}
+
+.nav-mobile.show { display: flex; }
+.nav-mobile button {
+  background: none;
+  border: none;
+  color: #374151;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+.nav-mobile button:hover { color: #1E40AF; }
+
+
+
+/* Buttons */
+.btn{--h:44px;display:inline-flex;align-items:center;justify-content:center;height:var(--h);padding:0 18px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer;transition:.2s all ease}
+.btn.btn-primary{background:var(--primary);color:#fff}
+.btn.btn-primary:hover{opacity:.95}
+.btn.btn-accent{background:var(--accent);color:#fff}
+.btn.btn-outline{background:transparent;color:#fff;border-color:#fff}
+.btn.btn-outline:hover{background:#fff;color:var(--primary)}
+.btn.btn-light{background:#fff;color:var(--primary);border-color:#fff}
+.btn.btn-lg{--h:56px;font-size:18px}
+
+/* Hero */
+.hero{position:relative;min-height:88vh;display:grid;align-items:center;margin-top:72px}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:rgba(30,64,175,.60)}
+.hero-content{position:relative;color:#fff;max-width:780px;padding:60px 0}
+.hero h1{font-size:48px;line-height:1.2;margin:0 0 12px;font-weight:800}
+.hero p{font-size:18px;opacity:.95;margin:0 0 22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Grid */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(1,1fr)}
+.grid-4{grid-template-columns:repeat(1,1fr)}
+.grid-2{grid-template-columns:1fr}
+.gap-lg{gap:28px}
+@media (min-width: 720px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}}
+
+/* Card & Feature */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.feature{padding:28px}
+.feature .icon{width:56px;height:56px;border-radius:999px;background:rgba(59,130,246,.12);display:grid;place-items:center;font-size:24px;color:var(--primary);margin-bottom:12px}
+.feature h3{margin:0 0 6px;color:var(--primary)}
+.feature p{margin:0;color:var(--muted)}
+
+/* CTA */
+.cta{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 0;flex-wrap:wrap}
+.cta h2{margin:0 0 6px;font-weight:800}
+.cta p{margin:0;opacity:.95}
+
+
+/* Catalog */
+.catalog-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.catalog-card .img-wrap{aspect-ratio:4/3;overflow:hidden}
+.catalog-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.catalog-card:hover img{transform:scale(1.06)}
+/* Memastikan style pada area informasi katalog */
+.catalog-card .body{padding:16px}
+.catalog-card h3{margin:0 0 10px;color:var(--primary)}
+.price-row{display:flex;align-items:center;justify-content:space-between;margin:8px 0;color:#334155}
+.price{color:var(--primary);font-weight:700}
+.card-actions{margin-top:12px}
+
+/* Swiper carousel */
+.catalog-card .swiper {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.catalog-card .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-card .swiper-button-next,
+.catalog-card .swiper-button-prev {
+  color: #1e3a8a;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  transform: translateY(-50%);
+}
+
+.catalog-card .swiper-button-next::after,
+.catalog-card .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Accordion */
+.accordion details{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:var(--shadow)}
+.accordion summary{display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;list-style:none}
+.accordion summary::-webkit-details-marker{display:none}
+.summary-left{width:44px;height:44px;border-radius:999px;background:rgba(59,130,246,.12);display:grid;place-items:center;font-size:20px;color:var(--primary)}
+.summary-right h3{margin:0;color:var(--primary)}
+.summary-right span{color:var(--muted);font-size:14px}
+.accordion-body{padding:0 16px 16px 72px;color:#334155}
+.accordion-body ul{margin:8px 0 0 18px}
+
+/* Map & About */
+.map-card{height:380px;overflow:hidden}
+.about h3{margin:0 0 6px;color:var(--primary);font-size:28px}
+.about p{color:#374151}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+
+/* Footer */
+.footer{background:#1E3A8A;color:#fff;margin-top:40px}
+.footer-grid{display:grid;gap:24px;padding:32px 0;grid-template-columns:repeat(1,1fr)}
+@media (min-width:860px){.footer-grid{grid-template-columns:repeat(3,1fr)}}
+.brand-footer{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-weight:700}
+.brand-mark--light{background:#fff;color:var(--primary)}
+.muted{color:rgba(255,255,255,.8)}
+.quick-links{display:grid;gap:6px}
+.quick-links button{background:none;border:0;color:rgba(255,255,255,.8);text-align:left;padding:4px 0;cursor:pointer}
+.quick-links button:hover{color:#fff}
+.copyright{border-top:1px solid rgba(255,255,255,.2);text-align:center;padding:14px 0;color:rgba(255,255,255,.7)}
+
+/* Helpers */
+.hidden{display:none}
+
+.gallery-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.gallery-section h3 {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* FORM BOOKING */
+#booking .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 0.4rem;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  border-color: #1e40af;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
+}
+
+.btn-primary {
+  background-color: #1e40af;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #1e3a8a;
+}
+
+/* Footer link tone konsisten dengan teks muted */
+.footer a,
+.footer a:visited,
+.footer a:active {
+  color: rgba(255, 255, 255, 0.85); /* putih lembut sama seperti teks muted */
+  text-decoration: none;
+  font-weight: 500;                  /* biar gak terlalu tebal */
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffffff;                    /* full putih saat hover */
+  opacity: 1;
+  text-decoration: underline;        /* efek halus saat diarahkan */
+}
+
+/* ======================================================================
+   KUSTOMISASI GALERI (untuk section Lokasi)
+   ----------------------------------------------------------------------
+   Di halaman ini ada beberapa aturan .gallery yang bertentangan. Untuk
+   menampilkan banyak foto kecil dalam satu baris seperti contoh,
+   kita buat aturan yang lebih spesifik untuk galeri di dalam section
+   lokasi. Aturan ini menata gambar menjadi grid responsif tanpa scroll
+   horizontal. Ubah nilai minimum kolom pada minmax() agar jumlah
+   foto per baris sesuai keinginan Anda. Semakin kecil angka, semakin
+   banyak foto yang dimuat dalam satu baris.
+*/
+
+/* Atur tampilan galeri hanya di dalam section #location */
+#location .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  overflow-x: hidden;
+  margin-top: 18px;
+}
+
+/* Pastikan tautan mengisi kolom sepenuhnya */
+#location .gallery a {
+  display: block;
+  width: 100%;
+}
+
+/* Gaya gambar pada layar lebar */
+#location .gallery img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Responsif: tablet */
+@media (max-width: 600px) {
+  #location .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  #location .gallery img {
+    height: 60px;
+  }
+}
+
+/* Responsif: ponsel */
+@media (max-width: 400px) {
+  #location .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  }
+  #location .gallery img {
+    height: 50px;
+  }
+}
+
+/*
+  === Galeri dengan judul dan posisi tengah ===
+  Tambahkan gaya untuk membungkus galeri dalam section dengan judul "Galeri".  
+  Section ini membuat seluruh galeri terpusat dan menata ulang kolom agar setiap gambar memiliki
+  lebar tetap (100px) dan tetap responsif. Jika jumlah foto lebih dari 9, baris kedua akan
+  otomatis ditambahkan tanpa memecahkan tata letak.
+*/
+
+/* Bungkus untuk judul dan galeri */
+#location .gallery-section {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* Judul galeri */
+#location .gallery-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* Tata letak grid baru: kolom tetap 100px, terpusat */
+#location .gallery {
+  display: grid;
+  /* Setiap kolom fix 100px; auto-fit menambah kolom sesuai ruang yang tersedia */
+  grid-template-columns: repeat(auto-fit, 100px);
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+/* Atur anchor dan gambar agar seragam */
+#location .gallery a {
+  display: block;
+}
+#location .gallery img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Responsif: tablet dan mobile */
+@media (max-width: 600px) {
+  #location .gallery {
+    grid-template-columns: repeat(auto-fit, 70px);
+  }
+  #location .gallery img {
+    width: 70px;
+    height: 60px;
+  }
+}
+@media (max-width: 400px) {
+  #location .gallery {
+    grid-template-columns: repeat(auto-fit, 50px);
+  }
+  #location .gallery img {
+    width: 50px;
+    height: 50px;
+  }
+}

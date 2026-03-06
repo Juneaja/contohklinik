@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klinik ABCDE</title>
+  <meta name="description" content="">
+
+  <!-- Font & Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.1/css/glightbox.min.css" integrity="sha512-2Fjv8L0G3YkL9xkcSNq0rM2aBrK5hVAUABfLGxma5W35xkfXaaS7GIK0nW2q+kKO4KVdX07rlLyW1+di6xOzZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header fixed">
+  <div class="container header-inner">
+    <div class="brand" onclick="scrollToId('home')">
+       <img src="assets/Logo.png" alt="Logo Klinik" class="brand-logo" />
+      <span class="brand-name">Klinik ABCDE</span>
+    </div>  
+
+    <nav class="nav-desktop">
+      <button onclick="scrollToId('home')">Home</button>
+      <button onclick="scrollToId('catalog')">Galeri Kegiatan & Flyer</button>
+      <button onclick="scrollToId('location')">Lokasi</button>
+    </nav>
+
+     <div class="header-cta">
+      <a class="btn btn-primary" href="https://wa.me/6289602337878" target="_blank" rel="noopener">
+        Hubungi Kami
+      </a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+      <i data-feather="menu"></i>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" id="navMobile">
+    <button onclick="scrollToId('home')">Home</button>
+    <button onclick="scrollToId('catalog')">Galeri Kegiatan & Flyer</button>
+    <button onclick="scrollToId('location')">Lokasi</button>
+    <a class="btn btn-primary w-full" href="https://wa.me/6289602337878" target="_blank" rel="noopener">
+      Hubungi Kami
+    </a>
+  </nav>
+</header>
+
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <img class="hero-bg" src="assets/galeri/bg.jpg" alt="Perumahan Modern" />
+  <div class="container hero-content">
+    
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Mengapa Memilih Klinik ABCDE</h2>
+    <div class="grid grid-3">
+      <div class="card feature">
+        <div class="icon">🚘</div>
+        <h3>Tempat Strategis</h3>
+        <p>Klinik berada di sekitar masyarakat,akses kemanapun mudah</p>
+      </div>
+      
+      <div class="card feature">
+        <div class="icon">💳</div>
+        <h3>Pelayanan Dijamin Sangat Ramah</h3>
+        <p>Pilihan sesuai kesehatan Anda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container cta-inner">
+    <div>
+      <h2>Klinik ABCDE Sahabat Kesehatan Keluarga Anda</h2>
+      <p>Hubungi kami via WhatsApp untuk Pendaftaran.</p>
+    </div>
+    <a class="btn btn-light" target="_blank" rel="noopener" href="https://wa.me/6289602337878">Hubungi via WhatsApp</a>
+  </div>
+</section>
+
+<!-- Booking Form -->
+<section id="booking" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">Daftar Sekarang</h2>
+    <p class="section-desc">Isi formulir di bawah ini, kami akan menghubungi Anda via WhatsApp.</p>
+
+    <div class="card">
+      <form id="bookingForm" class="form">
+        <div class="form-row">
+          <label for="name">Nama Lengkap</label>
+          <input id="name" name="name" type="text" placeholder="Masukkan nama lengkap" required />
+        </div>
+        
+        <div class="form-row">
+          <label for="destination">Alamat Lengkap</label>
+          <input id="destination" name="destination" type="text" placeholder="Contoh: jl.raya lamongan" required />
+        </div>
+        
+        <div class="form-row">
+          <label for="carType">Pili Dokter</label>
+          <select id="carType" name="carType" required>
+            <option value="">Pilih Dokter</option>
+            <option>dr. A</option>
+            <option>dr. B</option>
+            <option>dr. C</option>
+            <option>dr. D</option>
+            <option>dr. E</option>
+            <option>dr. F</option>
+        
+          </select>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Catalog -->
+<section id="catalog" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Pilih Dokter</h2>
+    <p class="section-desc">Pilih Dokter</p>
+    <div id="catalogGrid" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- Packages & Terms (Accordion) -->
+<section id="packages" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">Informasi &amp; Syarat</h2>
+    <p class="section-desc">Syarat Dan ketentuan.</p>
+
+    <div class="accordion">
+      <details>
+        <summary>
+          <div class="summary-left">🏠</div>
+          <div class="summary-right">
+            <h3>Kenapa periksa di Klinik ABCDE</h3>
+            <span>Cepat,tepat,tanggap</span>
+          </div>
+        </summary>
+        <div class="accordion-body">
+          <ul>
+            <li>pelayanan ramah</li>
+            <li>dokter ramah</li>
+            <li>konsultasi gratis</li>
+            <li>cepat,tepat,tanggap</li>
+            <li>BPJS</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="summary-left">📄</div>
+          <div class="summary-right">
+            <h3>Syarat &amp; Ketentuan</h3>
+            <span>Mohon dibaca sebelum melakukan pemeriksaan.</span>
+          </div>
+        </summary>
+        <div class="accordion-body">
+          <ul>
+            
+<li>bawa KTP/kartu BPJS</li>
+<li>kalau cek lab wajib puasa 8 jam</li>
+<li>berkata jujur ketika di anamnesa perawat / dokter</li>
+
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- Tentang Kami -->
+<section id="location" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Tentang Kami</h2>
+
+    
+
+      <div class="about">
+        
+        <p>Klinik merupakan fasilitas pelayanan kesehatan yang memberikan pemeriksaan, pengobatan, serta perawatan medis kepada masyarakat. Dengan didukung oleh tenaga medis yang profesional dan fasilitas yang memadai, klinik berperan penting dalam membantu masyarakat menjaga kesehatan dan mendapatkan penanganan medis secara cepat dan tepat. Klinik juga menjadi tempat yang mudah dijangkau bagi pasien untuk berkonsultasi mengenai berbagai masalah kesehatan serta memperoleh pelayanan yang ramah dan terpercaya.</p>
+       <p>hubungi Kami via Whatsapp.</p> ☎ : 089602337878
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Galeri foto: bungkus galeri dalam section khusus untuk judul dan tata letak -->
+  <div class="gallery-section">
+    <h3 class="gallery-title">Galeri Kegiatan Klinik ABCDE</h3>
+    <div class="gallery">
+      <a href="assets/galeri/galeri1.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri1.jpg" alt="Foto rumah 1" />
+      </a>
+      <a href="assets/galeri/galeri2.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri2.jpg" alt="Foto rumah 2" />
+      </a>
+      <a href="assets/galeri/galeri3.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri3.jpg" alt="Foto rumah 3" />
+      </a>
+      <a href="assets/galeri/galeri4.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri4.jpg" alt="Foto rumah 4" />
+      </a>
+      <a href="assets/galeri/galeri5.jpeg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri5.jpeg" alt="Foto rumah 5" />
+      </a>
+      <a href="assets/galeri/galeri6.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri6.jpg" alt="Foto rumah 6" />
+      </a>
+      <a href="assets/galeri/galeri7.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri7.jpg" alt="Foto rumah 7" />
+      </a>
+      <a href="assets/galeri/galeri8.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri8.jpg" alt="Foto rumah 8" />
+      </a>
+      <a href="assets/galeri/galeri9.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri9.jpg" alt="Foto rumah 9" />
+      </a>
+      <a href="assets/galeri/galeri10.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri10.jpg" alt="Foto rumah 10" />
+      </a>
+      <a href="assets/galeri/galeri11.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri11.jpg" alt="Foto rumah 11" />
+      </a>
+      <a href="assets/galeri/galeri12.JPG" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri12.JPG" alt="Foto rumah 12" />
+      </a>
+      <a href="assets/galeri/galeri13.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri13.jpg" alt="Foto rumah 13" />
+      </a>
+      <a href="assets/galeri/galeri14.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri14.jpg" alt="Foto rumah 14" />
+      </a>
+      <a href="assets/galeri/galeri15.jpg" class="glightbox" data-gallery="rentcar">
+        <img src="assets/galeri/galeri15.jpg" alt="Foto rumah 15" />
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand brand-footer">
+        <img src="assets/Logo.png" alt="Logo" class="brand-logo" />
+        <span>Klinik ABCDE</span>
+      </div>
+      <p class="muted">Klinik ABCDE klinik terpercaya di lamongan.</p>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <ul class="muted">
+        <li>📍 Lamongan Jawa Timur</li>
+        <li>📞 <a href="https://wa.me/6289602337878" target="_blank">WhatsApp: 089602337878</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <h4>Menu Cepat</h4>
+      <div class="quick-links">
+        <button onclick="scrollToId('home')">Home</button>
+        <button onclick="scrollToId('catalog')">Galeri Kegiatan & Flyer</button>
+        <button onclick="scrollToId('packages')">Informasi &amp; Syarat</button>
+        <button onclick="scrollToId('location')">Lokasi</button>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Ngoding_Asik. All rights reserved.</div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<!-- Icons replacement -->
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  feather.replace();
+</script>
+<!-- GLightbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.1/js/glightbox.min.js" integrity="sha512-VBb7K7v0NFk4QXg6UwLse6pUQ+AvJUrxkTeh85c9WjzvfEYoMAHidRCHfYdXwD7inL4CuF0xEfWadZTxKq8MOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
